@@ -1,0 +1,36 @@
+.card-full{
+  text-decoration: none;
+  text-align: center;
+}
+
+.card{
+  box-shadow: 0 2px 5px 2px rgba(86, 83, 253, 0.432);
+  border-radius: 0.5rem;
+  background: #FFF;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  height: 400px;
+  img{
+    width: 100%;
+    height: 50%;
+  }
+}
+.card:hover{
+  box-shadow: 0 2px 5px 2px rgba(112, 6, 212, 0.432);
+  transform: scale(1.05);
+  // filter: blur(3px);
+  // -webkit-filter: blur(3px);
+
+  
+  // background-color: rgba(0,0,0, 0.4); 
+  // color: white;
+  // font-weight: bold;
+  // border: 3px solid #f1f1f1;
+  // text-align: center;
+}
+
+.post-content{
+  padding: 7px;
+}
+
+

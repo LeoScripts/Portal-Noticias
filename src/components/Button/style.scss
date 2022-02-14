@@ -1,0 +1,33 @@
+.container-addMore{
+  background-color: #EEE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.addMore {
+  margin: 50px 10 20 10;
+  background-color: rgba(50, 204, 11, 0.788);
+  border-radius: 0.35rem;
+  padding: 10px;
+  width: 300px;
+  cursor: pointer;
+  border: none;
+}
+
+.addMore:hover {
+  opacity: 0.9;
+}
+
+.addMore:active {
+  color: #FFF;
+  background-color: rgb(37, 146, 9);
+  box-shadow: 0px 0px 2px 0px #aaf;
+}
+
+.addMore:disabled {
+  background: #888;
+  cursor: not-allowed;
+}
