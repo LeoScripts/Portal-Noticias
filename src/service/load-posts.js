@@ -14,15 +14,24 @@ export const loadPosts = async () => {
 
   const getNews = [];
 
+  // eslint-disable-next-line no-unused-vars
   const dados = data.articles.forEach((article) => {
     const { 
+      // eslint-disable-next-line no-unused-vars
       author,
+      // eslint-disable-next-line no-unused-vars
       content,
+      // eslint-disable-next-line no-unused-vars
       description,
+      // eslint-disable-next-line no-unused-vars
       publishedAt,
+      // eslint-disable-next-line no-unused-vars
       source,
+      // eslint-disable-next-line no-unused-vars
       title,
+      // eslint-disable-next-line no-unused-vars
       url,
+      // eslint-disable-next-line no-unused-vars
       urlToImage 
     } = article
 
