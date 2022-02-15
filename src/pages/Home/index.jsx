@@ -6,6 +6,8 @@ import { Posts } from '../../components/Posts';
 import { loadPosts } from '../../service/load-posts';
 import { Button } from '../../components/Button';
 import { SearchInput } from '../../components/SearchInput';
+import { Header } from '../../template/Header';
+import { Footer } from '../../template/Footer';
 
 
 
@@ -14,7 +16,7 @@ class Home extends Component {
   state = {
     posts: [],
     allPosts: [],
-    page:0,
+    page: 0,
     postsPerPage: 10,
     searchValue: ''
   }
@@ -28,9 +30,9 @@ class Home extends Component {
 
     const postsAndPhotos = await loadPosts()
 
-    this.setState({ 
-      posts: postsAndPhotos.slice(page,postsPerPage),
-      allPosts: postsAndPhotos ,
+    this.setState({
+      posts: postsAndPhotos.slice(page, postsPerPage),
+      allPosts: postsAndPhotos,
     });
   }
 
@@ -57,11 +59,11 @@ class Home extends Component {
   }
 
   render() {
-    
+
     const { posts, page, postsPerPage, allPosts, searchValue } = this.state;
     const noMorePosts = page + postsPerPage >= allPosts.length;
 
-    const filteredPosts = !!searchValue ? 
+    const filteredPosts = !!searchValue ?
       allPosts.filter(post => {
         return post.title.toLowerCase().includes(
           searchValue.toLowerCase()
@@ -70,37 +72,42 @@ class Home extends Component {
       : posts;
 
     return (
-      <section>
-        <div className='searchInput-container'>
-          {!!searchValue && (
-            <>
-              <h1>Search value: {searchValue}</h1>
-            </>
+      <>
+        <Header />
+        <section>
+          <div className='searchInput-container'>
+            {!!searchValue && (
+              <>
+                <h1>Search value: {searchValue}</h1>
+              </>
+            )}
+
+            <SearchInput
+              placeholder='Search'
+              searchValue={searchValue}
+              handleChange={this.handleChange}
+            />
+          </div>
+
+          {filteredPosts.length > 0 && (
+            <Posts posts={filteredPosts} />
           )}
 
-          <SearchInput
-            placeholder='Search'
-            searchValue={searchValue} 
-            handleChange={this.handleChange}
-          />
-        </div>
+          {filteredPosts.length === 0 && (
+            <h4>Nao encontrado</h4>
+          )}
 
-        {filteredPosts.length > 0 && (
-        <Posts posts={filteredPosts}/>
-        )}
+          {!searchValue && (
+            <Button
+              text='load more posts'
+              click={this.loadMorePosts}
+              noClick={noMorePosts}
+            />
+          )}
+        </section>
 
-        {filteredPosts.length === 0 && (
-          <h4>Nao encontrado</h4>
-        )}
-
-        {!searchValue && (
-          <Button
-          text='load more posts'
-          click={this.loadMorePosts}
-          noClick={noMorePosts} 
-        />
-        )}
-      </section>
+        <Footer />
+      </>
     )
   }
 }
