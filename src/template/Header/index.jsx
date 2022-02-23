@@ -6,15 +6,14 @@ import newsImg from '../../public/img/news.png'
 export function Header(){
     return (
         <header>
-          <a href="http://localhost:3000">
+          <a href="/">
             <img className='logo' src={newsImg} alt="" />
           </a>
           <nav>
-            <a href="http://localhost:3000">GitHub</a>
-            <a href="http://localhost:3000">Linkedin</a>
-            <a href="http://localhost:3000">About</a>
+            
+            <a href="http://localhost:3000">Leandro Cavalcante</a>
           </nav>
-          <a href="http://localhost:3000">Menu</a>
+          <a href="http://localhost:3000">About</a>
         </header>
     )
 }
