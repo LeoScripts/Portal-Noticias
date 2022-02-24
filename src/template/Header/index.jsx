@@ -14,7 +14,7 @@ export function Header(){
               </div>
             </a>
 
-            <a className='contato' href="http://localhost:3000">Contato</a>
+            <a className='contato' href="https://www.linkedin.com/in/leoscripts/">Contato</a>
           </nav>
           </div>
         </header>

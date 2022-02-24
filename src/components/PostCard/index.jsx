@@ -17,7 +17,6 @@ export const PostCard = ({ posts }) => {
         />
         <div  className="post-content">
           <h2 >{posts.title}</h2>
-          <p>{posts.body}</p>
 
         </div>
 
