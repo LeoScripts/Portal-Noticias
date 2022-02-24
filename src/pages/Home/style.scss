@@ -1,6 +1,25 @@
 
+.full-home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  max-width: 1280px;
+}
+
 .searchInput-container {
   padding: 20px;
+}
+
+.home-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home{
+  max-width: 1280px;
 }
 
 

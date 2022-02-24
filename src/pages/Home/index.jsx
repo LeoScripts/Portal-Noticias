@@ -72,42 +72,51 @@ class Home extends Component {
       : posts;
 
     return (
-      <>
+      <div className="document">
+
         <Header />
-        <section>
-          <div className='searchInput-container'>
-            {!!searchValue && (
-              <>
-                <h1>Search value: {searchValue}</h1>
-              </>
-            )}
 
-            <SearchInput
-              placeholder='Search'
-              searchValue={searchValue}
-              handleChange={this.handleChange}
-            />
+        <div className='full-home'>
+          <div className='container'>
+            <div className='home-container'>
+              <section className='home'>
+                <div className='searchInput-container'>
+                  {!!searchValue && (
+                    <>
+                      <h1>{searchValue}</h1>
+                    </>
+                  )}
+
+                  <SearchInput
+                    placeholder='🔍'
+                    searchValue={searchValue}
+                    handleChange={this.handleChange}
+                  />
+                </div>
+
+                {filteredPosts.length > 0 && (
+                  <Posts posts={filteredPosts} />
+                )}
+
+                {filteredPosts.length === 0 && (
+                  <h4>Nao encontrado</h4>
+                )}
+
+                {!searchValue && (
+                  <Button
+                    text='Carregar Mais'
+                    click={this.loadMorePosts}
+                    noClick={noMorePosts}
+                  />
+                )}
+              </section>
+            </div>
           </div>
-
-          {filteredPosts.length > 0 && (
-            <Posts posts={filteredPosts} />
-          )}
-
-          {filteredPosts.length === 0 && (
-            <h4>Nao encontrado</h4>
-          )}
-
-          {!searchValue && (
-            <Button
-              text='load more posts'
-              click={this.loadMorePosts}
-              noClick={noMorePosts}
-            />
-          )}
-        </section>
+        </div>
 
         <Footer />
-      </>
+
+      </div>
     )
   }
 }
